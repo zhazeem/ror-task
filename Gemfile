@@ -27,6 +27,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.2'
 gem 'dotenv-rails', '~> 2.7', groups: [:development, :production]
 gem 'jwt', '~> 2.2'
+gem 'active_model_serializers', '~> 0.10.12'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
