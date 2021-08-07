@@ -1,4 +1,5 @@
 class V1::SessionsController < Devise::SessionsController
+  include Serializable
   respond_to :json
 
   def create
@@ -8,7 +9,7 @@ class V1::SessionsController < Devise::SessionsController
     return invalid_login_attempt unless resource
     if resource.valid_password?(sign_in_params[:password])
       sign_in(resource_name, resource)
-      render json: resource
+      render json: {data: render_serializable(resource, Post)}
     else
       invalid_login_attempt
     end
