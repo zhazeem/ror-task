@@ -1,5 +1,6 @@
 class V1::PostsController < BaseApiController
   before_action :authenticate_user_from_token!, only: [:create, :update, :destroy]
+  before_action :set_post, only: [:update, :destroy]
 
   def index
     posts = Post.all
@@ -16,8 +17,7 @@ class V1::PostsController < BaseApiController
   end
 
   def update
-    post = @current_user.posts.find(params[:id])
-    if post.update(post_params)
+    if @post.update(post_params)
       render json: {data: render_serializable(post, Post)}
     else
       render_error('api.errors.posts.update', post.errors)
@@ -25,13 +25,16 @@ class V1::PostsController < BaseApiController
   end
 
   def destroy
-    post = @current_user.posts.find(params[:id])
-    post.destroy
+    @post.destroy
     head :ok
   end
 
   protected
   def post_params
     params.require(:post).permit(:title, :body)
+  end
+
+  def set_post
+    @post = @current_user.posts.find(params[:id])
   end
 end
