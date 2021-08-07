@@ -1,9 +1,9 @@
 class V1::PostsController < BaseApiController
-  before_action :authenticate_user_from_token!
+  before_action :authenticate_user_from_token!, only: [:create, :update, :destroy]
 
   def index
     posts = Post.all
-    render json: {data: render_serializable(posts, Post)}
+    render json: {data: render_serializable(posts)}
   end
 
   def create
