@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :first_name, :sure_name, presence: true
 
+  has_many :posts
+  
   after_create :update_auth_token
 
   private
