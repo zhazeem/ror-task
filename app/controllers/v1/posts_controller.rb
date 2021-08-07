@@ -7,6 +7,11 @@ class V1::PostsController < BaseApiController
     render json: {data: render_serializable(posts)}
   end
 
+  def show
+    post = Post.find(params[:id])
+    render json: {data: render_serializable(post, Post)}
+  end
+
   def create
     post = @current_user.posts.new(post_params)
     if post.save
