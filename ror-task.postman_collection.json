@@ -1,0 +1,294 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ror-task",
+		"_postman_id": "6b27555d-19f6-7659-cfe3-2b7b9599b136",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sign_up",
+			"request": {
+				"url": "http://localhost:3000/v1/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\":{\n\t\t\"email\": \"test13@test.com\",\n\t\t\"password\": \"12345678\",\n\t\t\"password_confirmation\": \"12345678\",\n\t\t\"first_name\": \"test\",\n\t\t\"sure_name\": \"test\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "sign_in",
+			"request": {
+				"url": "http://localhost:3000/v1/users/sign_in",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\":{\n\t\t\"email\": \"test@test.com\",\n\t\t\"password\": \"12345678\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "confirm",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/v1/users/confirmation?confirmation_token=sXUZQJqVzMwZ_EM7WsCw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"confirmation"
+					],
+					"query": [
+						{
+							"key": "confirmation_token",
+							"value": "sXUZQJqVzMwZ_EM7WsCw",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\":{\n\t\t\"email\": \"test5@test.com\",\n\t\t\"password\": \"12345678\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "list posts",
+			"request": {
+				"url": "http://localhost:3000/v1/posts",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\":{\n\t\t\"email\": \"test@test.com\",\n\t\t\"password\": \"12345678\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add post",
+			"request": {
+				"url": "http://localhost:3000/v1/posts",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjo4fSwiZXhwIjoxNjQ0MTQ4NDg2fQ.3bcy2oJHSRI8y9BHIw2AkDjrl4WcZqEp1cFKHNn6ZqA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"post\":{\n\t\t\"title\": \"test\",\n\t\t\"body\": \"test test\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update post",
+			"request": {
+				"url": "http://localhost:3000/v1/posts/5",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjo4fSwiZXhwIjoxNjQ0MTQ4NDg2fQ.3bcy2oJHSRI8y9BHIw2AkDjrl4WcZqEp1cFKHNn6ZqA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"post\":{\n\t\t\"title\": \"test ffff\",\n\t\t\"body\": \"test test\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete post",
+			"request": {
+				"url": "http://localhost:3000/v1/posts/4",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjo4fSwiZXhwIjoxNjQ0MTQ4NDg2fQ.3bcy2oJHSRI8y9BHIw2AkDjrl4WcZqEp1cFKHNn6ZqA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"post\":{\n\t\t\"title\": \"test ffff\",\n\t\t\"body\": \"test test\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "list post comments",
+			"request": {
+				"url": "http://localhost:3000/v1/posts/1/comments",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\":{\n\t\t\"email\": \"test@test.com\",\n\t\t\"password\": \"12345678\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add comment",
+			"request": {
+				"url": "http://localhost:3000/v1/posts/1/comments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjo4fSwiZXhwIjoxNjQ0MTQ4NDg2fQ.3bcy2oJHSRI8y9BHIw2AkDjrl4WcZqEp1cFKHNn6ZqA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"comment\":{\n\t\t\"body\": \"test test\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update comment",
+			"request": {
+				"url": "http://localhost:3000/v1/posts/1/comments/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjo4fSwiZXhwIjoxNjQ0MTQ4NDg2fQ.3bcy2oJHSRI8y9BHIw2AkDjrl4WcZqEp1cFKHNn6ZqA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"comment\":{\n\t\t\"body\": \"test test ffff\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete comment",
+			"request": {
+				"url": "http://localhost:3000/v1/posts/1/comments/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjo4fSwiZXhwIjoxNjQ0MTQ4NDg2fQ.3bcy2oJHSRI8y9BHIw2AkDjrl4WcZqEp1cFKHNn6ZqA",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "show post",
+			"request": {
+				"url": "http://localhost:3000/v1/posts/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\":{\n\t\t\"email\": \"test@test.com\",\n\t\t\"password\": \"12345678\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
