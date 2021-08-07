@@ -7,3 +7,6 @@ en:
       posts:
         create: 'add post failed'
         update: 'update post failed'
+      comments:
+        create: 'add comment failed'
+        update: 'update comment failed'
